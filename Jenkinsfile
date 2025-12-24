@@ -4,7 +4,7 @@ pipeline {
         jdk 'Java17'
         maven 'Maven3'
     }
-    stages{
+    stages("Stage1 by SOHAM"){
         
         stage("Author soham -- Cleanup Workspace"){
             steps{
@@ -27,5 +27,14 @@ pipeline {
                  sh "mvn test"
            }
        }
+        stage("SonarQube Analysis"){
+           steps {
+	           script {
+		        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
+                        sh "mvn sonar:sonar"
+		        }
+	           }	
+            }
+        }
     }
 }
