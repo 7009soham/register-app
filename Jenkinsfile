@@ -22,19 +22,23 @@ pipeline {
             }
 
        }
-       stage("Test Application"){
-           steps {
-                 sh "mvn test"
-           }
-       }
-        stage("SonarQube Analysis"){
-           steps {
-	           script {
-		        withSonarQubeEnv(credentialsId: 'jenkins-sonarkube-token') { 
-                        sh "mvn sonar:sonar"
-		        }
-	           }	
+        stage("Test Application"){
+            steps {
+                sh "mvn test"
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube-server') {
+                sh '''
+                mvn clean verify \
+                org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
+                -Dsonar.projectKey=register-app \
+                -Dsonar.projectName=register-app
+                '''
+            }
+        }
+        }
+
     }
 }
