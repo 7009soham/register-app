@@ -31,7 +31,7 @@
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 
-   <h1> DHANYAWAAD </h1>
+   <h1> DHANYAWAAD TECHIES</h1>
    <br>
    <h1> Happy Learning......... </h1>
    
