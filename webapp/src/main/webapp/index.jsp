@@ -1,5 +1,8 @@
 <form action="action_page.php">
   <div class="container">
+    <p style="margin-bottom: 12px;">
+      <a href="login.jsp" style="color: #667eea; text-decoration: none; font-weight: 600;">🚀 Access DevOps Dashboard</a>
+    </p>
     <h1>This is soham's simulation for enterprise level devops CICD</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
